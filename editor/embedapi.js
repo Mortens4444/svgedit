@@ -326,7 +326,7 @@ class EmbeddedSVGEdit {
     window.addEventListener('message', getMessageListener(this));
     window.addEventListener('keydown', (e) => {
       const {type, key} = e;
-      if (key === 'Backspace') {
+      if (key === 'Backspace' && that.frame.contentDocument) {
         e.preventDefault();
         const keyboardEvent = new KeyboardEvent(type, {key});
         that.frame.contentDocument.dispatchEvent(keyboardEvent);
